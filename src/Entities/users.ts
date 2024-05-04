@@ -1,35 +1,32 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
+import { Reviews } from "./Reviews"
 
 @Entity()
 export class Users {
-    @PrimaryGeneratedColumn()
-    id: number
+  @PrimaryGeneratedColumn()
+  user_id: number
 
-    @Column({
-        length: 50,
-        unique: true
-    })
-    login: string
+  @Column()
+  login: string
 
-    @Column({
-        length: 50
-    })
-    name: string
+  @Column()
+  password: string
 
-    @Column({
-        length: 50,
-        unique: true
-    })
-    email: string
+  @Column()
+  name: string
 
-    @Column()
-    birthday: string
+  @Column()
+  email: string
 
-    @Column({
-        unique: true
-    })
-    role: string
+  @Column()
+  birthday: Date
 
-    @Column()
-    refresh_token: string
+  @Column({ default: 0 })
+  role: number
+
+  @Column({ nullable: true })
+  refresh_token: string
+
+  @OneToMany(() => Reviews, reviews => reviews.user) 
+  reviews: Reviews[]
 }

@@ -1,5 +1,5 @@
 const PasswordCrypt = require('./passwordCrypt.ts')
-const config = require('../сonnect')
+const config = require('../../сonnect')
 const jwt = require('jsonwebtoken');
 import { Request, Response } from "express";
 require('dotenv').config();
@@ -17,7 +17,7 @@ interface UserData {
 
 class AuthController {
     async register(req: Request, res: Response) {
-        const {login, password, name, email, birthday} = req.body as any
+        const {login, password, name, email, birthday} = req.body
         const hashedPassword = PasswordCrypt.hash(password)
         console.log(hashedPassword)
         try {

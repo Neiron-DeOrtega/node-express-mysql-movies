@@ -4,16 +4,18 @@
     "port": 3306,
     "username": "root",
     "password": "",
-    "database": "react-catalog",
+    "synchronize": true,
+    "logging": false,
+    "database": "react-catalog-new",
     "entities": [
-        "src/entities/*.ts"
+        "src/Entities/*.ts"
     ],
     "migrations": [
-        "src/migrations/*.ts"
+        "src/Migrations/*.ts"
     ],
     "cli": {
-      "entitiesDir": "src/entities",
-      "migrationsDir": "src/migrations"
+      "entitiesDir": "src/Entities",
+      "migrationsDir": "src/Migrations"
     }
   }
   
