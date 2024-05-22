@@ -7,29 +7,29 @@ import { Reviews } from "./Reviews"
 @Entity()
 export class Movies {
   @PrimaryGeneratedColumn()
-  movies_id: number
+  movies_id!: number
 
   @Column()
-  movie_name: string
+  movie_name!: string
 
   @Column()
-  release_date: number
+  release_date!: number
 
   @Column()
-  movie_logo: string
+  movie_logo!: string
 
   @Column()
-  description: string
+  description!: string
 
   @ManyToMany(() => Genres, genres => genres.movies)
-  genres: Genres[]
+  genres!: Genres[]
 
   @ManyToMany(() => Directors, directors => directors.movies)
-  director: Directors[]
+  director!: Directors[]
 
   @ManyToMany(() => Actors, actors => actors.movies)
-  actors: Actors[]
+  actors!: Actors[]
 
   @OneToMany(() => Reviews, reviews => reviews.movie)
-  reviews: Reviews[]
+  reviews!: Reviews[]
 }

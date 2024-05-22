@@ -4,29 +4,29 @@ import { Reviews } from "./Reviews"
 @Entity()
 export class Users {
   @PrimaryGeneratedColumn()
-  user_id: number
+  user_id!: number
 
   @Column()
-  login: string
+  login!: string
 
   @Column()
-  password: string
+  password!: string
 
   @Column()
-  name: string
+  name!: string
 
   @Column()
-  email: string
+  email!: string
 
   @Column()
-  birthday: Date
+  birthday!: Date
 
   @Column({ default: 0 })
-  role: number
+  role!: number
 
   @Column({ nullable: true })
-  refresh_token: string
+  refresh_token!: string
 
   @OneToMany(() => Reviews, reviews => reviews.user) 
-  reviews: Reviews[]
+  reviews!: Reviews[]
 }
